@@ -12,3 +12,5 @@ github_publish:
     - git remote set-url origin $GITHUB_REPO_URL
     - ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
     - git push origin master
+  only:
+    - master
