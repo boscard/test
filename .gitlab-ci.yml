@@ -9,5 +9,5 @@ github_publish:
   script:
     - eval $(ssh-agent -s)
     - ssh-add <(echo "$SSH_PRIVATE_KEY")
-    - git set remote-url origin $GITHUB_REPO_URL
+    - git remote set-url origin $GITHUB_REPO_URL
     - git push origin master
