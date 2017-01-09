@@ -10,4 +10,5 @@ github_publish:
     - eval $(ssh-agent -s)
     - ssh-add <(echo "$SSH_PRIVATE_KEY")
     - git remote set-url origin $GITHUB_REPO_URL
-    - git remote -v
+    - ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+    - git push origin master
