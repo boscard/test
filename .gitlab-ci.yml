@@ -2,7 +2,7 @@ stages:
   - github_publish
 
 variables:
-  - GITHUB_REPO_URL: 'git@github.com:boscard/test.git'
+  GITHUB_REPO_URL: 'git@github.com:boscard/test.git'
 
 github_publish:
   stage: github_publish
