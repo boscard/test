@@ -1,0 +1,12 @@
+stages:
+  - github_publish
+
+variables:
+  - GITHUB_REPO_URL: 'git@github.com:boscard/test.git'
+
+github_publish:
+  stage: github_publish
+  script:
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - ls -la
