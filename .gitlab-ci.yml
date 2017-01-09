@@ -7,10 +7,12 @@ variables:
 github_publish:
   stage: github_publish
   script:
-    - eval $(ssh-agent -s)
-    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - git checkout master
+    - git pull origin master
     - git remote set-url origin $GITHUB_REPO_URL
     - if [ `grep -c github.com ~/.ssh/known_hosts` -eq 0 ]; then ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts; fi
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
     - git push origin master
   only:
     - master
